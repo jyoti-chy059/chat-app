@@ -17,7 +17,7 @@ Code for Nodejs application is in [babbleserver folder](https://github.com/jyoti
     2 run npm install
     3 run npm start
 
-##3 Step 3 Chat App
+## Step 3 Chat App
     
     1 Go to babble folder
     2 run npm install
