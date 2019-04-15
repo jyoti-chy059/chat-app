@@ -1,0 +1,67 @@
+<div *ngIf="overlayDisplay" class="overlay">
+  <h1>Loading</h1>
+</div>
+<!-- Loading overlay section starts -->
+
+<!-- header section starts -->
+<!--<header class="app-header">-->
+  <!--<nav class="navbar navbar-expand-md">
+      <a class="navbar-brand" href="#">Hello {{username}}</a>
+  </nav>
+  <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" [routerLink]="" (click)="activeProfile()">Profile</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link active" href="#" (click)="logout()">Logout</a>
+      </li>
+  </ul>-->
+<!--</header>-->
+<!-- header section ends -->
+
+<div class="">
+        <nav class="navbar navbar-expand-sm navbar-custom">
+          <div class="container">
+                <!--<a class="navbar-brand topbar-custom" href="#">Hello {{username}}</a>-->
+            <button class="navbar-toggler" data-toggle="collapse"
+             data-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" 
+            id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" routerLink=""  (click)="activeProfile()">Profile</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Logout</a>
+              </li>
+            </ul>
+          </div>
+          </div>
+        </nav>
+ </div>
+    
+        
+ 
+
+
+<!--Main Content starts-->
+<app-chat-list></app-chat-list>
+
+<main role="main" class="container content"  *ngIf="!overlayDisplay">
+    <div class="container">
+        <div class="row">
+                <div class="col-3">
+
+                    </div>
+                    <div class="col-9 message-container">
+                            <app-messages></app-messages>
+                    </div>
+        </div>
+           
+            
+    </div>
+</main>
+
+

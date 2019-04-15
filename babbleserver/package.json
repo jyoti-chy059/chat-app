@@ -1,0 +1,21 @@
+{
+  "name": "babbleserver",
+  "version": "1.0.0",
+  "description": "A chat server using mongodb and socket.io",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Jyoti Kumari",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/debug-agent": "^2.5.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "dotenv": "^5.0.1",
+    "express": "^4.14.0",
+    "mongodb": "^3.2.3",
+    "socket.io": "^2.2.0"
+  }
+}
