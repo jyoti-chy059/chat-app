@@ -119,8 +119,8 @@ export class ChatService {
 						observer.next(false);
 					});
 			} else {
-				this.router.navigate(['/']);
-				observer.next(false);
+				//this.router.navigate(['/']);
+				observer.next(true);
 			}
 		});
 	}

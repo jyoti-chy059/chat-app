@@ -1,25 +1,9 @@
 <div *ngIf="overlayDisplay" class="overlay">
   <h1>Loading</h1>
 </div>
-<!-- Loading overlay section starts -->
 
-<!-- header section starts -->
-<!--<header class="app-header">-->
-  <!--<nav class="navbar navbar-expand-md">
-      <a class="navbar-brand" href="#">Hello {{username}}</a>
-  </nav>
-  <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link active" [routerLink]="" (click)="activeProfile()">Profile</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link active" href="#" (click)="logout()">Logout</a>
-      </li>
-  </ul>-->
-<!--</header>-->
-<!-- header section ends -->
-
-<div class="">
+<!--Navigation Content starts-->
+<div>
         <nav class="navbar navbar-expand-sm navbar-custom">
           <div class="container">
                 <!--<a class="navbar-brand topbar-custom" href="#">Hello {{username}}</a>-->
@@ -34,33 +18,31 @@
                 <a class="nav-link" routerLink=""  (click)="activeProfile()">Profile</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Logout</a>
+                  <a class="nav-link" routerLink="" (click)="loginRegister()">Login</a>
               </li>
+              <li class="nav-item">
+                 <a class="nav-link" routerLink="" (click)="loginRegister()">Register</a>
+              </li>
+             <li class="nav-item">
+                <a class="nav-link" routerLink="" (click)="logout()">Logout</a>
+            </li>
             </ul>
           </div>
           </div>
         </nav>
  </div>
     
-        
- 
-
-
 <!--Main Content starts-->
-<app-chat-list></app-chat-list>
+<app-chat-list *ngIf="userId !== null"></app-chat-list>
 
 <main role="main" class="container content"  *ngIf="!overlayDisplay">
     <div class="container">
         <div class="row">
-                <div class="col-3">
-
-                    </div>
+                <div class="col-3"></div>
                     <div class="col-9 message-container">
-                            <app-messages></app-messages>
+                         <app-messages *ngIf="userId !== null"></app-messages>
                     </div>
-        </div>
-           
-            
+        </div>           
     </div>
 </main>
 

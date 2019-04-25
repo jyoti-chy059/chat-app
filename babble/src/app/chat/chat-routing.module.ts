@@ -4,7 +4,7 @@ import { GuardService as AuthGuard } from '../shared/guard.service';
 import { ChatComponent } from './chat.component';
 
 const routes: Routes = [
-    {
+  /*  {
         path: '',
         component: ChatComponent,
         children: [{
@@ -17,12 +17,38 @@ const routes: Routes = [
         }, {
             path: 'home',
             loadChildren: './home/home.module#HomeModule',
-            canActivate: [AuthGuard]
+           // canActivate: [AuthGuard]
         },{
             path: 'profile',
             loadChildren: './profile/profile.module#ProfileModule',
             canActivate: [AuthGuard]
         },
+         {
+            path: '**',
+            redirectTo: 'home'
+        }]   
+    } */  
+
+    {
+        path: '',
+        component: ChatComponent,
+        children: [{
+            path: '',
+            redirectTo: 'home',
+            pathMatch: 'full'
+        }, {
+            path: 'authentication',
+            loadChildren: './authentication/authentication.module#AuthenticationModule'
+        }, {
+            path: 'home',
+            loadChildren: './home/home.module#HomeModule',
+           // canActivate: [AuthGuard]
+        },{
+            path: 'profile',
+            loadChildren: './profile/profile.module#ProfileModule',
+            //canActivate: [AuthGuard]
+        },
+        
          {
             path: '**',
             redirectTo: 'home'

@@ -8,7 +8,7 @@ import { UiSupportModule } from '../../support/ui-support/ui-support.module';
 
 @NgModule({
   declarations: [
-      HomeComponent,
+      HomeComponent
   ],
   imports: [
     CommonModule,

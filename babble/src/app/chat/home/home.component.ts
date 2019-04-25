@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../shared/data.service';
-import { Router } from '../../../../node_modules/@angular/router';
+import { Router, ActivatedRoute } from '../../../../node_modules/@angular/router';
 import { ChatService } from '../../shared/chat.service';
 import { SocketService } from '../../shared/socket.service';
 import { Auth } from '../../interface/auth';
@@ -12,19 +12,26 @@ import { Auth } from '../../interface/auth';
 })
 export class HomeComponent implements OnInit {
 
-  public userId: string = null;
+    public userId: string = null;
 	public username: string = null;
-	public overlayDisplay = true;
+	public overlayDisplay = false;
 
   constructor(private dataService: DataService, 
               private chatService: ChatService,
               private socketService: SocketService,
-              private router: Router) { }
+              private router: Router,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.userId = this.dataService.getUserId();
-    this.username = this.dataService.getUserName();
-    this.establishSocketConnection();
+    //this.userId = this.dataService.getUserId();
+    this.userId = localStorage.getItem('userid');
+    this.username = localStorage.getItem('userName')
+
+    console.log(`Home Component ${this.userId}`);
+    //this.username = this.dataService.getUserName();
+    //if(this.userId !== null){
+        this.establishSocketConnection();
+    //}
   }
 
   async establishSocketConnection() {
@@ -45,7 +52,8 @@ logout() {
     this.chatService.removeLS()
         .then((removedLs: boolean) => {
             this.socketService.logout({ userId: this.userId }).subscribe((response: Auth) => {
-                this.router.navigate(['/']);
+                localStorage.clear();
+                this.router.navigate(['../../logout']);
             });
         })
         .catch((error: Error) => {
@@ -57,5 +65,10 @@ logout() {
 activeProfile(){
     this.router.navigate(['/chat/profile']);
 }
+
+loginRegister(){
+    this.router.navigate(['/chat/authentication']);
+}
+
 
 }

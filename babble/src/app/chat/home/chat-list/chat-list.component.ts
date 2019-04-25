@@ -30,8 +30,10 @@ export class ChatListComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-    this.userId = this.dataService.getUserId();
-    this.username = this.dataService.getUserName();
+    //this.userId = this.dataService.getUserId();
+    //this.username = this.dataService.getUserName();
+    this.userId = localStorage.getItem('userid');
+    this.username = localStorage.getItem('userName')
     this.socketService.getChatList(this.userId).subscribe((chatListResponse: ChatListResponse) => {
         this.showChatList(chatListResponse);
     });
